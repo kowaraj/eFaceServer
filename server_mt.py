@@ -63,8 +63,26 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         b0= b'eAS0'
         b1= b'\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04'
         b2= b'\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08'
-        b3= b'\x00\x00echofep GIT_VER.0.90localhost localhost -  2019-350.14:20:08\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s123456789'
+        b3= b'\x00\x00echofep GIT_VER.0.90localhost localhost -  2019-350.14:20:08\neAssSrvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s123456789'
         b4= b'\n\x00'
+
+        b3= \
+b'''\x00\x00fidx 26c.0.52 pcposc1 -  2019-350.18:20:05    Log: pcposc1:/Data/log/fidx_ams_current.log
+eAssSrvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1
+Source: pcposc0.cern.ch Counters cleared 03h:57:09 pty Errs 0  State: Idle 1 secs
+   Path                    Source   Target   To_Go Since     Delay
+F0 /Data/FRAMES/HKHR/RT    3658/599 3658/599   -   00:26     02:05
+F1 /Data/FRAMES/HKBPB/RT   4241/075 4241/075   -   00:26     22:00
+F2 /Data/FRAMES/SCIBPB/RT  4244/052 4244/052   -   00:24     22:05
+F3 /Data/FRAMES/SCI/RT     0014/090 0014/090   -    -         -
+F4 /Data/FRAMES/HKRBPB/RT  0063/814 0063/814   -    -        14d:13:33
+F5 /Data/FRAMES/HKRPB/RT   0072/144 0072/144   -    -        14d:13:33
+F6 /Data/FRAMES/SCIRBPB/RT 0062/347 0062/347   -    -        14d:13:33
+F7 /Data/FRAMES/SCIRPB/RT  None     None       -    -         -
+F8 /Data/FRAMES/HKLR/CDP   3670/495 3670/495   -   00:24     Current  
+F9 /Data/FRAMES/P2PRP/RT   0010/102 0010/102   -    -        10h:08:44
+Rate: 10.2 Mbits/s
+'''
 
         # b0= b'eAS0'
         # b1= b'\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04'

@@ -1,0 +1,18 @@
+[apashnin@localhost eAssClient]$ cat /home/apashnin/received.dat; echo END
+
+
+fidx 26c.0.52 pcposc1 -  2019-350.18:20:05    Log: pcposc1:/Data/log/fidx_ams_current.log
+eAssSrvr: CommandCnt: 19 ReplyCnt: 18 RepliesPosted: 18 ReplyPolls: 18 Accepts: 30 Connections: 3
+Source: pcposc0.cern.ch Counters cleared 03h:57:09 pty Errs 0  State: Idle 1 secs
+   Path                    Source   Target   To_Go Since     Delay    
+F0 /Data/FRAMES/HKHR/RT    3658/599 3658/599   -   00:26     02:05    
+F1 /Data/FRAMES/HKBPB/RT   4241/075 4241/075   -   00:26     22:00    
+F2 /Data/FRAMES/SCIBPB/RT  4244/052 4244/052   -   00:24     22:05    
+F3 /Data/FRAMES/SCI/RT     0014/090 0014/090   -    -         -       
+F4 /Data/FRAMES/HKRBPB/RT  0063/814 0063/814   -    -        14d:13:33
+F5 /Data/FRAMES/HKRPB/RT   0072/144 0072/144   -    -        14d:13:33
+F6 /Data/FRAMES/SCIRBPB/RT 0062/347 0062/347   -    -        14d:13:33
+F7 /Data/FRAMES/SCIRPB/RT  None     None       -    -         -       
+F8 /Data/FRAMES/HKLR/CDP   3670/495 3670/495   -   00:24     Current  
+F9 /Data/FRAMES/P2PRP/RT   0010/102 0010/102   -    -        10h:08:44
+Rate: 10.2 Mbits/s
