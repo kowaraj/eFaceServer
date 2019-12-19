@@ -4,21 +4,6 @@ import threading
 import random 
 import FidzStatus
 
-# bytearray(b'eAS01\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x01\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\tSESSIONID\x02\x00\x00\x00\x01\x00\x00\x00\x00\x08\x00\x00\x00Welcome.')
-# >>> s1 = "0x65 0x41 0x53 0x30 0x1a 0x00 0x00 0x00 0x02 0x00 0x02 0x00 0x0b 0x02 0x00 0x00 0x00 0x05 0x00 0x01 0x00 0x00 0x01 0x00 0x00 0x00 0x00 0x02 0x00 0x0d 0x02 0x00 0x00 0x00 0x01 0x00"
-# >>> l1 = s1.split(' ')
-# >>> l1
-# ['0x65', '0x41', '0x53', '0x30', '0x1a', '0x00', '0x00', '0x00', '0x02', '0x00', '0x02', '0x00', '0x0b', '0x02', '0x00', '0x00', '0x00', '0x05', '0x00', '0x01', '0x00', '0x00', '0x01', '0x00', '0x00', '0x00', '0x00', '0x02', '0x00', '0x0d', '0x02', '0x00', '0x00', '0x00', '0x01', '0x00']
-# >>> b1 = [int(i,16) for i in l1]
-# >>> b1
-# [101, 65, 83, 48, 26, 0, 0, 0, 2, 0, 2, 0, 11, 2, 0, 0, 0, 5, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 0, 13, 2, 0, 0, 0, 1, 0]
-# >>> bytearray(b1)
-# bytearray(b'eAS0\x1a\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x05\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00')
-# '\t'.join(s2)
-# >>> s3.spit('\t')
-
-
-#instead of: class MyTCPSocketHandler(socketserver.BaseRequestHandler):
 class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
@@ -45,7 +30,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         self.request.sendall(r)
 
 
-class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+class LegacyEAssServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     pass
 
 
@@ -53,7 +38,7 @@ if __name__ == "__main__":
     
     HOST, PORT = "localhost", 61009
 
-    server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)
+    server = LegacyEAssServer((HOST, PORT), ThreadedTCPRequestHandler)
     ip, port = server.server_address
     print("server @ {}:{}", ip, port)
     server_thread = threading.Thread(target=server.serve_forever)
