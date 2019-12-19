@@ -12,23 +12,23 @@ class Status():
         len_hex = "{0:04x}".format(len)
         b = bytearray.fromhex(len_hex)
         b.reverse()
-        print("to_hexb: " + str(b))
+        # print("to_hexb: " + str(b))
         return b
 
     def getReplyOnMsgType1(self, data):
-        print('request received: ' + data)
+        # print('request received: ' + data)
         r = bytearray(b'eAS01\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x01\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\tSESSIONID\x02\x00\x00\x00\x01\x00\x00\x00\x00\x08\x00\x00\x00Welcome.')        
-        print('length = ' + str(len(r)))
+        # print('length = ' + str(len(r)))
         return r
 
     def getReplyOnMsgType5(self, data):
-        print('request received: ' + data)
+        # print('request received: ' + data)
         r = bytearray(b'eAS0\x1a\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x05\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00')
-        print('length = ' + str(len(r)))
+        # print('length = ' + str(len(r)))
         return r
 
     def getReplyOnMsgType6(self, data):
-        print('request received: ' + data)
+        # print('request received: ' + data)
         b0= b'eAS0'
         b1= b'\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04'
         b2= b'\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08'
@@ -51,22 +51,22 @@ F9 /Data/FRAMES/P2PRP/RT   0010/102 0010/102   -    -        10h:08:44
 Rate: {0} Mbits/s
 '''.format(random.randint(1, 100) ).encode()
 
-        print('len b0 = ' + str(len(b0)))
-        print('len b1 = ' + str(len(b1)))
-        print('len b2 = ' + str(len(b2)))
-        print('len b3 = ' + str(len(b3)))
-        print('len b4 = ' + str(len(b4)))
+        # print('len b0 = ' + str(len(b0)))
+        # print('len b1 = ' + str(len(b1)))
+        # print('len b2 = ' + str(len(b2)))
+        # print('len b3 = ' + str(len(b3)))
+        # print('len b4 = ' + str(len(b4)))
         
         l1 = len(b1 + b2 + b3 + b4)
-        print('l1 = ' + str(l1))
+        # print('l1 = ' + str(l1))
         l2 = len(     b2 + b3 + b4)
-        print('l2 = ' + str(l2))
+        # print('l2 = ' + str(l2))
         l3 = len(          b3     )
-        print('l3 = ' + str(l3))
+        # print('l3 = ' + str(l3))
 
         r = bytearray(b0 + self.__to_hexb(l1) + b1 + self.__to_hexb(l2) + b2 + self.__to_hexb(l3) + b3 + b4)
-        print('r      = ' + str(r))
-        print('length = ' + str(len(r)))
+        # print('r      = ' + str(r))
+        # print('length = ' + str(len(r)))
 
         return r
 
