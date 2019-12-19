@@ -33,7 +33,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
     def handle(self):
         data = str(self.request.recv(1024))
         print('request received: ' + data)
-        cur_thread = threading.current_thread()
+        #cur_thread = threading.current_thread()
 
         #response = bytes("Replying to {}: DATA={}".format(cur_thread.name, data), encoding='utf8')
         # [101, 65, 83, 48, 49, 0, 0, 0, 2, 0, 2, 0, 11, 2, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 2, 9, 83, 69, 83, 83, 73, 79, 78, 73, 68, 2, 0, 0, 0, 1, 0, 0, 0, 0, 8, 0, 0, 0, 87, 101, 108, 99, 111, 109, 101, 46]
@@ -107,9 +107,9 @@ Rate: 10.2 Mbits/s
         print('r      = ' + str(r))
         print('length = ' + str(len(r)))
 
-        r_ = bytearray(b'eAS0\x23\x01\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04\x02\x01\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\xb7\x00\x00\x00echofep GIT_VER.0.90localhost localhost -  2019-350.14:20:08\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s12345\n\x00')
-        print('r      = ' + str(r_))
-        print('length = ' + str(len(r_)))
+        # r_ = bytearray(b'eAS0\x23\x01\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04\x02\x01\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\xb7\x00\x00\x00echofep GIT_VER.0.90localhost localhost -  2019-350.14:20:08\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s12345\n\x00')
+        # print('r      = ' + str(r_))
+        # print('length = ' + str(len(r_)))
         self.request.sendall(r)
 
 
