@@ -7,6 +7,8 @@ import FidzStatus
 class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
+        print('\n1. Request received.............')
+
         fs = FidzStatus.Status()
 
         data = str(self.request.recv(1024))
@@ -25,6 +27,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         r = fs.getReplyOnMsgType6(data)
         self.request.sendall(r)
 
+        print('\n4. Request completed............')
 
 class LegacyEAssServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     pass
