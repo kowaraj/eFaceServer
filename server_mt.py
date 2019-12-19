@@ -1,6 +1,7 @@
 import socketserver
 import time
 import threading    
+import random 
 
 # bytearray(b'eAS01\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x01\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\tSESSIONID\x02\x00\x00\x00\x01\x00\x00\x00\x00\x08\x00\x00\x00Welcome.')
 # >>> s1 = "0x65 0x41 0x53 0x30 0x1a 0x00 0x00 0x00 0x02 0x00 0x02 0x00 0x0b 0x02 0x00 0x00 0x00 0x05 0x00 0x01 0x00 0x00 0x01 0x00 0x00 0x00 0x00 0x02 0x00 0x0d 0x02 0x00 0x00 0x00 0x01 0x00"
@@ -46,7 +47,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         print('\n2. Waiting to continue..........')
         data = str(self.request.recv(1024))
         print('request received: ' + data)
-        cur_thread = threading.current_thread()
+        #cur_thread = threading.current_thread()
         r = bytearray(b'eAS0\x1a\x00\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x05\x00\x01\x00\x00\x01\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00')
         print('length = ' + str(len(r)))
         self.request.sendall(r)
@@ -54,7 +55,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         print('\n3. Waiting to continue..........')
         data = str(self.request.recv(1024))
         print('request received: ' + data)
-        cur_thread = threading.current_thread()
+        #cur_thread = threading.current_thread()
         # r = bytearray(b'eAS0\x1e\x01\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04\xfd\x00\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\xb2\x00\x00\x00echofep GIT_VER.0.88localhost localhost -  2019-347.20:18:52\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s\n\x00')
         # r = bytearray(b'eAS0\x21\x01\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04\x00\x01\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\xb5\x00\x00\x00echofep GIT_VER.0.89localhost localhost -  2019-350.13:54:03\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s123\n\x00')
         # r = bytearray(b'eAS0\x22\x01\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04\x01\x01\x00\x00\x02\x00\x05\x02\x00\x00\x00\xff\x01\x01\x00\x06\x01\x00\x00\x00\x02\x03\x00\x07\x04\x00\x00\x00\x02\x00\x00\x00\x02\x05ERROR\x02\x00\x00\x00\x00\x00\x02\x00\r\x02\x00\x00\x00\x01\x00\x03\x08DATATIME\x04\x00\x00\x00\x00\x00\x00\x00\x02\x00\x08\xb6\x00\x00\x00echofep GIT_VER.0.90localhost localhost -  2019-350.14:20:08\neAss---Srvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1\nRate: 666.8 Mbits/s1234\n\x00')
@@ -67,7 +68,7 @@ class ThreadedTCPRequestHandler(socketserver.BaseRequestHandler):
         b4= b'\n\x00'
 
         b3= \
-b'''\x00\x00fidx 26c.0.52 pcposc1 -  2019-350.18:20:05    Log: pcposc1:/Data/log/fidx_ams_current.log
+'''\x00\x00fidx 26c.0.52 pcposc1 -  2019-350.18:20:05    Log: pcposc1:/Data/log/fidx_ams_current.log
 eAssSrvr: CommandCnt: 1 ReplyCnt: 0 RepliesPosted: 0 ReplyPolls: 0 Accepts: 1 Connections: 1
 Source: pcposc0.cern.ch Counters cleared 03h:57:09 pty Errs 0  State: Idle 1 secs
    Path                    Source   Target   To_Go Since     Delay
@@ -81,8 +82,8 @@ F6 /Data/FRAMES/SCIRBPB/RT 0062/347 0062/347   -    -        14d:13:33
 F7 /Data/FRAMES/SCIRPB/RT  None     None       -    -         -
 F8 /Data/FRAMES/HKLR/CDP   3670/495 3670/495   -   00:24     Current  
 F9 /Data/FRAMES/P2PRP/RT   0010/102 0010/102   -    -        10h:08:44
-Rate: 10.2 Mbits/s
-'''
+Rate: {0} Mbits/s
+'''.format(random.randint(1, 100) ).encode()
 
         # b0= b'eAS0'
         # b1= b'\x00\x00\x02\x00\x02\x00\x0b\x02\x00\x00\x00\x06\x00\x01\x00\x00\x01\x00\x00\x00\x01\x02\x00\r\x02\x00\x00\x00\x01\x00\x05\x00\x04'
